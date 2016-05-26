@@ -15,3 +15,16 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+
+$('img#add-round.score-btn').click(function(){
+  console.log('somthing')
+})
+
+$('img#minus-round.score-btn').click(function(){
+  console.log('somthing')
+})
+
+});
