@@ -19,12 +19,41 @@
 $( document ).ready(function() {
     console.log( "ready!" );
 
-$('img#add-round.score-btn').click(function(){
-  console.log('somthing')
-})
+upInRound();
+downInRound();
 
-$('img#minus-round.score-btn').click(function(){
-  console.log('somthing')
-})
+addPlayer();
+
+
+
+
+
+
+
+
+
+
 
 });
+
+
+// Go up in round when clicked on add button.
+function upInRound(){
+  $('img#add-round.score-btn').click(function(){
+    console.log('somthing');
+
+  })
+}
+
+// Go down in round when clicking on minus button.
+function downInRound(){
+  $('img#minus-round.score-btn').click(function(){
+    console.log('somthing')
+  })
+}
+
+function addPlayer(){
+  $('a.btn.btn-success').click(function(e){
+    $('table').append("<tr><td>test</th><td>0</td><td class='btn-sm'>+1</td><td class='btn-sm'>+5</td><td class='btn-sm'>+10</td><td class='btn-sm'>-10</td><td class='btn-sm'>-1</td></tr>");
+  });
+}
