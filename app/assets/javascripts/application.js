@@ -29,7 +29,7 @@ function eventBindings(){
   addFive();
   addTen();
   minusOne();
-  minusTen()
+  minusTen();
   resetScore();
 }
 
@@ -48,6 +48,7 @@ function upInRound(){
 
   })
 }
+
 // Go down in round when clicking on minus button.
 function downInRound(){
   $('img#minus-round.score-btn').click(function(){
@@ -60,12 +61,10 @@ function downInRound(){
 function addPlayer(){
   $('a.btn.btn-success').click(function(e){
     var playerName = $('#player-name')[0].value
-    // debugger
-    $('table').append("<tr><td>" + playerName + "</th><td>0</td><td class='btn-sm btn-success'>+1</td><td class='btn-sm btn-success'>+5</td><td class='btn-sm btn-success'>+10</td><td class='btn-sm btn-danger'>-10</td><td class='btn-sm btn-danger'>-1</td></tr>");
+    $('table').append("<tr class='player-stat'><td>test</th><td id='score'>0</td><td class='btn-sm btn-success plus1'>+1</td><td class='btn-sm btn-success plus5'>+5</td><td class='btn-sm btn-success plus10'>+10</td><td class='btn-sm btn-danger minus10'>-10</td><td class='btn-sm btn-danger minus1'>-1</td></tr>");
   $('#player-name')[0].value = "";
   });
-
-}
+};
 
 function resetScore(){
   $('#resetScore').click(function(){
@@ -74,61 +73,64 @@ function resetScore(){
 }
 
 function addOne(){
-  $('#plus1').click(function(){
+  $('.plus1').click(function(){
     console.log('add 1');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[2].textContent
     var currentScore = parseInt(currentScoreString)
     var newScore = currentScore + 1
-    this.parentNode.childNodes[2].textContent = parseInt(newScore)
+    this.parentNode.childNodes[2].textContent = newScore
     // debugger
-  })
-}
+  });
+};
 
 function addFive(){
-  $('#plus5').click(function(){
-    console.log('add 1');
+  $('.plus5').click(function(){
+    console.log('add 5');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[2].textContent
     var currentScore = parseInt(currentScoreString)
     var newScore = currentScore + 5
-    this.parentNode.childNodes[2].textContent = parseInt(newScore)
+    this.parentNode.childNodes[2].textContent = newScore
     // debugger
-  })
-}
+  });
+};
 
 function addTen(){
-  $('#plus10').click(function(){
-    console.log('add 1');
+  $('.plus10').click(function(){
+    console.log('add 10');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[2].textContent
     var currentScore = parseInt(currentScoreString)
     var newScore = currentScore + 10
-    this.parentNode.childNodes[2].textContent = parseInt(newScore)
+    this.parentNode.childNodes[2].textContent = newScore
     // debugger
   })
-}
-
-function minusOne(){
-  $('#plus10').click(function(){
-    console.log('add 1');
-    var player = this.parentElement
-    var currentScoreString = this.parentNode.childNodes[2].textContent
-    var currentScore = parseInt(currentScoreString)
-    var newScore = currentScore - 1
-    this.parentNode.childNodes[2].textContent = parseInt(newScore)
-    // debugger
-  })
-}
+};
 
 function minusTen(){
-  $('#plus10').click(function(){
-    console.log('add 1');
+  $('.minus10').click(function(){
+    console.log('minus 10');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[2].textContent
     var currentScore = parseInt(currentScoreString)
     var newScore = currentScore - 10
-    this.parentNode.childNodes[2].textContent = parseInt(newScore)
+    this.parentNode.childNodes[2].textContent = newScore
     // debugger
   })
-}
+};
+
+function minusOne(){
+  $('.minus1').click(function(){
+    console.log('minus 1');
+    var player = this.parentElement
+    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScore = parseInt(currentScoreString)
+    var newScore = currentScore - 1
+    this.parentNode.childNodes[2].textContent = newScore
+    // debugger
+  })
+};
+
+
+
