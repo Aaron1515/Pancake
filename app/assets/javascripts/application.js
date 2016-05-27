@@ -24,7 +24,7 @@ downInRound();
 
 addPlayer();
 
-
+resetScore();
 
 
 
@@ -37,23 +37,37 @@ addPlayer();
 });
 
 
+
+// ===================Bidding stop===================
+var counter = 0
+
 // Go up in round when clicked on add button.
 function upInRound(){
   $('img#add-round.score-btn').click(function(){
     console.log('somthing');
+    counter++;
+    $('#round-num').text(counter);
 
   })
 }
-
 // Go down in round when clicking on minus button.
 function downInRound(){
   $('img#minus-round.score-btn').click(function(){
-    console.log('somthing')
+    console.log('somthing');
+    counter--;
+    $('#round-num').text(counter);
   })
 }
 
 function addPlayer(){
   $('a.btn.btn-success').click(function(e){
-    $('table').append("<tr><td>test</th><td>0</td><td class='btn-sm'>+1</td><td class='btn-sm'>+5</td><td class='btn-sm'>+10</td><td class='btn-sm'>-10</td><td class='btn-sm'>-1</td></tr>");
+    $('table').append("<tr><td>test</th><td>0</td><td class='btn-sm btn-success'>+1</td><td class='btn-sm btn-success'>+5</td><td class='btn-sm btn-success'>+10</td><td class='btn-sm btn-danger'>-10</td><td class='btn-sm btn-danger'>-1</td></tr>");
   });
 }
+
+function resetScore(){
+  $('#resetScore').click(function(){
+    $('#round-num').text(0);
+  });
+}
+
