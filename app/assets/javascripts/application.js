@@ -17,14 +17,13 @@
 //= require_tree .
 
 $( document ).ready(function() {
-    console.log( "ready!" );
-    eventBindings()
+  console.log( "ready!" );
+  addPlayer();
 });
 
 function eventBindings(){
   upInRound();
   downInRound();
-  addPlayer();
   addOne();
   addFive();
   addTen();
@@ -61,7 +60,11 @@ function downInRound(){
 function addPlayer(){
   $('a.btn.btn-success').click(function(e){
     var playerName = $('#player-name')[0].value
-    $('table').append("<tr class='player-stat'><td>test</th><td id='score'>0</td><td class='btn-sm btn-success plus1'>+1</td><td class='btn-sm btn-success plus5'>+5</td><td class='btn-sm btn-success plus10'>+10</td><td class='btn-sm btn-danger minus10'>-10</td><td class='btn-sm btn-danger minus1'>-1</td></tr>");
+    if (playerName === ""){
+      playerName = "Player"
+    }
+    // debugger
+    $('table').append("<tr id='player-stat'><td>"+playerName+"</th><td class='playerCurrent'>0</td><td class='btn-sm btn-success plus1'>+1</td><td class='btn-sm btn-success plus5'>+5</td><td class='btn-sm btn-success plus10'>+10</td><td class='btn-sm btn-danger minus10'>-10</td><td class='btn-sm btn-danger minus1'>-1</td></tr>");
   $('#player-name')[0].value = "";
   });
 };
@@ -76,10 +79,10 @@ function addOne(){
   $('.plus1').click(function(){
     console.log('add 1');
     var player = this.parentElement
-    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScoreString = this.parentNode.childNodes[1].textContent
     var currentScore = parseInt(currentScoreString)
     var newScore = currentScore + 1
-    this.parentNode.childNodes[2].textContent = newScore
+    this.parentNode.childNodes[1].textContent = newScore
     // debugger
   });
 };
@@ -88,10 +91,10 @@ function addFive(){
   $('.plus5').click(function(){
     console.log('add 5');
     var player = this.parentElement
-    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScoreString = this.parentNode.childNodes[1].textContent
     var currentScore = parseInt(currentScoreString)
     var newScore = currentScore + 5
-    this.parentNode.childNodes[2].textContent = newScore
+    this.parentNode.childNodes[1].textContent = newScore
     // debugger
   });
 };
@@ -100,10 +103,10 @@ function addTen(){
   $('.plus10').click(function(){
     console.log('add 10');
     var player = this.parentElement
-    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScoreString = this.parentNode.childNodes[1].textContent
     var currentScore = parseInt(currentScoreString)
     var newScore = currentScore + 10
-    this.parentNode.childNodes[2].textContent = newScore
+    this.parentNode.childNodes[1].textContent = newScore
     // debugger
   })
 };
@@ -112,10 +115,10 @@ function minusTen(){
   $('.minus10').click(function(){
     console.log('minus 10');
     var player = this.parentElement
-    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScoreString = this.parentNode.childNodes[1].textContent
     var currentScore = parseInt(currentScoreString)
     var newScore = currentScore - 10
-    this.parentNode.childNodes[2].textContent = newScore
+    this.parentNode.childNodes[1].textContent = newScore
     // debugger
   })
 };
@@ -124,10 +127,10 @@ function minusOne(){
   $('.minus1').click(function(){
     console.log('minus 1');
     var player = this.parentElement
-    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScoreString = this.parentNode.childNodes[1].textContent
     var currentScore = parseInt(currentScoreString)
     var newScore = currentScore - 1
-    this.parentNode.childNodes[2].textContent = newScore
+    this.parentNode.childNodes[1].textContent = newScore
     // debugger
   })
 };
