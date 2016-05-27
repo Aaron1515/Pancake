@@ -17,7 +17,6 @@
 //= require_tree .
 
 $( document ).ready(function() {
-  console.log( "ready!" );
   roundCounter();
   addPlayerBinding()
 });
@@ -61,12 +60,13 @@ function downRound(){
 
 // ===================Add New Player===================
 function addPlayer(){
- $('a.btn.btn-success').click(function(e){
+ $('a.btn.btn-success').click(function(){
    var playerName = $('#player-name')[0].value;
    addNewPlayer(playerName);
+   $('#player-name')[0].value = "";
  });
 
- $('.playerScore')
+
 }
 
 function addNewPlayer(playerName){
@@ -115,7 +115,6 @@ function resetScore(){
 function addOne(player){
   var plusOneButton = player.find('.plus1');
   plusOneButton.click(function(){
-    console.log('add 1');
     var player = this.parentElement;
     var currentScoreString = this.parentNode.childNodes[1].textContent;
     var currentScore = parseInt(currentScoreString);
@@ -128,7 +127,6 @@ function addOne(player){
 function addFive(player){
   var plusFiveButton = player.find('.plus5')
   plusFiveButton.click(function(){
-    console.log('add 5');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[1].textContent
     var currentScore = parseInt(currentScoreString);
@@ -141,7 +139,6 @@ function addFive(player){
 function addTen(player){
   var plusTenButton = player.find('.plus10')
   plusTenButton.click(function(){
-    console.log('add 10');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[1].textContent
     var currentScore = parseInt(currentScoreString)
@@ -154,7 +151,6 @@ function addTen(player){
 function minusTen(player){
   var minusTenButton = player.find('.minus10')
   minusTenButton.click(function(){
-    console.log('minus 10');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[1].textContent
     var currentScore = parseInt(currentScoreString);
@@ -167,7 +163,6 @@ function minusTen(player){
 function minusOne(player){
   var minusOneButton = player.find('.minus1')
   minusOneButton.click(function(){
-    console.log('minus 1');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[1].textContent;
     var currentScore = parseInt(currentScoreString);
