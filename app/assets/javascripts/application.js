@@ -18,28 +18,22 @@
 
 $( document ).ready(function() {
     console.log( "ready!" );
-
-upInRound();
-downInRound();
-
-addPlayer();
-
-resetScore();
-
-
-
-
-
-
-
-
-
+    eventBindings()
 });
 
-
+function eventBindings(){
+  upInRound();
+  downInRound();
+  addPlayer();
+  changeScore();
+  resetScore();
+}
 
 // ===================Bidding stop===================
+
+
 var counter = 0
+
 
 // Go up in round when clicked on add button.
 function upInRound(){
@@ -61,8 +55,12 @@ function downInRound(){
 
 function addPlayer(){
   $('a.btn.btn-success').click(function(e){
-    $('table').append("<tr><td>test</th><td>0</td><td class='btn-sm btn-success'>+1</td><td class='btn-sm btn-success'>+5</td><td class='btn-sm btn-success'>+10</td><td class='btn-sm btn-danger'>-10</td><td class='btn-sm btn-danger'>-1</td></tr>");
+    var playerName = $('#player-name')[0].value
+    // debugger
+    $('table').append("<tr><td>" + playerName + "</th><td>0</td><td class='btn-sm btn-success'>+1</td><td class='btn-sm btn-success'>+5</td><td class='btn-sm btn-success'>+10</td><td class='btn-sm btn-danger'>-10</td><td class='btn-sm btn-danger'>-1</td></tr>");
+  $('#player-name')[0].value = "";
   });
+
 }
 
 function resetScore(){
@@ -71,3 +69,11 @@ function resetScore(){
   });
 }
 
+function changeScore(){
+  $('#plus1').click(function(){
+    console.log('add 1');
+    var player = this.parentElement
+
+    debugger
+  })
+}

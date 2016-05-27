@@ -16,22 +16,23 @@
     <th></th>
     <th></th>
   </tr>
-<!--   <tr>
+  <tr class="player-stat">
     <td>test</th>
-    <td>0</td>
-    <td class='btn-sm btn-success'>+1</td>
-    <td class='btn-sm btn-success'>+5</td>
-    <td class='btn-sm btn-success'>+10</td>
-    <td class='btn-sm btn-danger'>-10</td>
-    <td class='btn-sm btn-danger'>-1</td>
-  </tr> -->
+    <td id="score">0</td>
+    <td class='btn-sm btn-success' id="plus1">+1</td>
+    <td class='btn-sm btn-success' id="plus5">+5</td>
+    <td class='btn-sm btn-success' id="plus10">+10</td>
+    <td class='btn-sm btn-danger' id="minus10">-10</td>
+    <td class='btn-sm btn-danger' id="minus1">-1</td>
+  </tr>
 </table>
 <hr>
 <div class="container">
-<input type="text" class="name-field" placeholder="Player's Name" maxlength="10">
+  <input type="text" class="name-field" id='player-name' placeholder="Player's Name" maxlength="5">
 
-<a href="#" class='btn btn-success'>Add Player</a>
-<br>
-<br>
-<a href="#" class='btn btn-danger' id="resetScore">Reset Score</a>
+  <a class='btn btn-success'>Add Player</a>
+  <br>
+  <br>
+  <a href="#" class='btn btn-danger' id="resetScore">Reset Score</a>
 </div>
+
