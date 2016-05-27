@@ -25,7 +25,11 @@ function eventBindings(){
   upInRound();
   downInRound();
   addPlayer();
-  changeScore();
+  addOne();
+  addFive();
+  addTen();
+  minusOne();
+  minusTen()
   resetScore();
 }
 
@@ -69,11 +73,62 @@ function resetScore(){
   });
 }
 
-function changeScore(){
+function addOne(){
   $('#plus1').click(function(){
     console.log('add 1');
     var player = this.parentElement
+    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScore = parseInt(currentScoreString)
+    var newScore = currentScore + 1
+    this.parentNode.childNodes[2].textContent = parseInt(newScore)
+    // debugger
+  })
+}
 
-    debugger
+function addFive(){
+  $('#plus5').click(function(){
+    console.log('add 1');
+    var player = this.parentElement
+    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScore = parseInt(currentScoreString)
+    var newScore = currentScore + 5
+    this.parentNode.childNodes[2].textContent = parseInt(newScore)
+    // debugger
+  })
+}
+
+function addTen(){
+  $('#plus10').click(function(){
+    console.log('add 1');
+    var player = this.parentElement
+    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScore = parseInt(currentScoreString)
+    var newScore = currentScore + 10
+    this.parentNode.childNodes[2].textContent = parseInt(newScore)
+    // debugger
+  })
+}
+
+function minusOne(){
+  $('#plus10').click(function(){
+    console.log('add 1');
+    var player = this.parentElement
+    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScore = parseInt(currentScoreString)
+    var newScore = currentScore - 1
+    this.parentNode.childNodes[2].textContent = parseInt(newScore)
+    // debugger
+  })
+}
+
+function minusTen(){
+  $('#plus10').click(function(){
+    console.log('add 1');
+    var player = this.parentElement
+    var currentScoreString = this.parentNode.childNodes[2].textContent
+    var currentScore = parseInt(currentScoreString)
+    var newScore = currentScore - 10
+    this.parentNode.childNodes[2].textContent = parseInt(newScore)
+    // debugger
   })
 }
