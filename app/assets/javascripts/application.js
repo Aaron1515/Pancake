@@ -18,89 +18,129 @@
 
 $( document ).ready(function() {
   console.log( "ready!" );
-  addPlayer();
+  roundCounter();
+  addPlayerBinding()
 });
 
-function eventBindings(){
-  upInRound();
-  downInRound();
-  addOne();
-  addFive();
-  addTen();
-  minusOne();
-  minusTen();
-  resetScore();
+function roundCounter(){
+ upRound();
+ downRound();
+ resetScore();
 }
 
+function addPlayerBinding(){
+  addPlayer();
+}
 // ===================Bidding stop===================
 
 
-var counter = 0
 
 
+
+//===================Round Counter Start===================
+var counter = 0;
 // Go up in round when clicked on add button.
-function upInRound(){
+function upRound(){
   $('img#add-round.score-btn').click(function(){
-    console.log('somthing');
     counter++;
     $('#round-num').text(counter);
-
-  })
+  });
 }
 
 // Go down in round when clicking on minus button.
-function downInRound(){
+function downRound(){
   $('img#minus-round.score-btn').click(function(){
-    console.log('somthing');
     counter--;
     $('#round-num').text(counter);
-  })
+  });
+}
+// ===================Round Counter End===================
+
+
+
+
+// ===================Add New Player===================
+function addPlayer(){
+ $('a.btn.btn-success').click(function(e){
+   var playerName = $('#player-name')[0].value;
+   addNewPlayer(playerName);
+ });
+
+ $('.playerScore')
 }
 
-function addPlayer(){
-  $('a.btn.btn-success').click(function(e){
-    var playerName = $('#player-name')[0].value
-    if (playerName === ""){
-      playerName = "Player"
-    }
-    // debugger
-    $('table').append("<tr id='player-stat'><td>"+playerName+"</th><td class='playerCurrent'>0</td><td class='btn-sm btn-success plus1'>+1</td><td class='btn-sm btn-success plus5'>+5</td><td class='btn-sm btn-success plus10'>+10</td><td class='btn-sm btn-danger minus10'>-10</td><td class='btn-sm btn-danger minus1'>-1</td></tr>");
-  $('#player-name')[0].value = "";
-  });
-};
+function addNewPlayer(playerName){
+  if (playerName === ""){
+    playerName = "Player"
+  }
 
+  var player = "<tr class='player-stat'><td>"+playerName+"</th><td class='playerScore'>0</td><td class='btn-sm btn-success plus1'>+1</td><td class='btn-sm btn-success plus5'>+5</td><td class='btn-sm btn-success plus10'>+10</td><td class='btn-sm btn-danger minus10'>-10</td><td class='btn-sm btn-danger minus1'>-1</td></tr>";
+
+  $('table').append(player);
+
+  var newestPlayer = $('.player-stat').last()
+  addFunctionTo(newestPlayer);
+}
+
+function addFunctionTo(player){
+ addOne(player);
+ addFive(player);
+ addTen(player);
+ minusOne(player);
+ minusTen(player);
+}
+
+// ===================Add New Player End===================
+
+
+
+
+
+// ===================Reset Score Board Start===================
 function resetScore(){
   $('#resetScore').click(function(){
     $('#round-num').text(0);
+
+    for (i = 0; i < $('.playerScore').length; i++){
+      $('.playerScore')[i].textContent = 0
+    }
+
+  });
+}
+// ===================Reset Score Board End===================
+
+
+
+// ===================Tally Score For Player===================
+function addOne(player){
+  var plusOneButton = player.find('.plus1');
+  plusOneButton.click(function(){
+    console.log('add 1');
+    var player = this.parentElement;
+    var currentScoreString = this.parentNode.childNodes[1].textContent;
+    var currentScore = parseInt(currentScoreString);
+    var newScore = currentScore + 1;
+    this.parentNode.childNodes[1].textContent = newScore;
+    // debugger
   });
 }
 
-function addOne(){
-  $('.plus1').click(function(){
-    console.log('add 1');
-    var player = this.parentElement
-    var currentScoreString = this.parentNode.childNodes[1].textContent
-    var currentScore = parseInt(currentScoreString)
-    var newScore = currentScore + 1
-    this.parentNode.childNodes[1].textContent = newScore
-    // debugger
-  });
-};
-
-function addFive(){
-  $('.plus5').click(function(){
+function addFive(player){
+  var plusFiveButton = player.find('.plus5')
+  plusFiveButton.click(function(){
     console.log('add 5');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[1].textContent
-    var currentScore = parseInt(currentScoreString)
+    var currentScore = parseInt(currentScoreString);
     var newScore = currentScore + 5
-    this.parentNode.childNodes[1].textContent = newScore
+    this.parentNode.childNodes[1].textContent = newScore;
     // debugger
   });
 };
 
-function addTen(){
-  $('.plus10').click(function(){
+function addTen(player){
+  var plusTenButton = player.find('.plus10')
+  plusTenButton.click(function(){
     console.log('add 10');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[1].textContent
@@ -111,29 +151,29 @@ function addTen(){
   })
 };
 
-function minusTen(){
-  $('.minus10').click(function(){
+function minusTen(player){
+  var minusTenButton = player.find('.minus10')
+  minusTenButton.click(function(){
     console.log('minus 10');
     var player = this.parentElement
     var currentScoreString = this.parentNode.childNodes[1].textContent
-    var currentScore = parseInt(currentScoreString)
-    var newScore = currentScore - 10
-    this.parentNode.childNodes[1].textContent = newScore
+    var currentScore = parseInt(currentScoreString);
+    var newScore = currentScore - 10;
+    this.parentNode.childNodes[1].textContent = newScore;
     // debugger
-  })
+  });
 };
 
-function minusOne(){
-  $('.minus1').click(function(){
+function minusOne(player){
+  var minusOneButton = player.find('.minus1')
+  minusOneButton.click(function(){
     console.log('minus 1');
     var player = this.parentElement
-    var currentScoreString = this.parentNode.childNodes[1].textContent
-    var currentScore = parseInt(currentScoreString)
+    var currentScoreString = this.parentNode.childNodes[1].textContent;
+    var currentScore = parseInt(currentScoreString);
     var newScore = currentScore - 1
-    this.parentNode.childNodes[1].textContent = newScore
+    this.parentNode.childNodes[1].textContent = newScore;
     // debugger
   })
 };
-
-
-
+// ===================Tally Score For Player End===================
