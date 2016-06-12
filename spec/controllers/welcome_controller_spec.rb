@@ -9,6 +9,17 @@ RSpec.describe WelcomeController, type: :controller do
       expect(true).to be true
     end
 
+    it "expect to have 200 status when loading page" do
+      expect(response).to have_http_status(200)
+    end
+
+    it "expect to render index" do
+      get :index
+      expect(response).to render_template("index")
+    end
+
+
+
   end
 
 
