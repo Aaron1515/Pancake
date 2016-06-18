@@ -111,7 +111,7 @@ function resetScore(){
 
 
 
-// ===================Tally Score For Player===================
+// ===================Adding Score For Player===================
 function addOne(player){
   var plusOneButton = player.find('.plus1');
   plusOneButton.click(function(){
@@ -171,4 +171,4 @@ function minusOne(player){
     // debugger
   })
 };
-// ===================Tally Score For Player End===================
+// ===================Add Score For Player End===================
