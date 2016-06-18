@@ -70,8 +70,13 @@ function addPlayer(){
 }
 
 function addNewPlayer(playerName){
+// debugger
   if (playerName === ""){
     playerName = "Player"
+  } else if (playerName.lenght < 4 ){
+    playerName = playerName + " " + " " + " "
+  } else if (playerName.length > 12){
+    playerName = playerName.substring(0,9) + "..."
   }
 
   var player = "<tr class='player-stat'><td>"+playerName+"</th><td class='playerScore'>0</td><td class='btn-sm btn-success plus1'>+1</td><td class='btn-sm btn-success plus5'>+5</td><td class='btn-sm btn-success plus10'>+10</td><td class='btn-sm btn-danger minus10'>-10</td><td class='btn-sm btn-danger minus1'>-1</td></tr>";
