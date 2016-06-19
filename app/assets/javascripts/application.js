@@ -104,8 +104,8 @@ function addFunctionTo(player){
 // ===================Reset Score Board Start===================
 function resetScore(){
   $('#resetScore').click(function(){
-    $('#round-num').text(0);
 
+    $('#round-num').text(0);
     for (i = 0; i < $('.playerScore').length; i++){
       $('.playerScore')[i].textContent = 0
     }
