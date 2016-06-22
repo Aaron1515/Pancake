@@ -46,14 +46,13 @@ function addPlayer(){
  $('a.btn.btn-success').click(function(){
    var playerName = $('#player-name')[0].value;
    addNewPlayer(playerName);
+   //need to add promise for success and fail
    $('#player-name')[0].value = "";
  });
-
-
 }
 
 function addNewPlayer(playerName){
-// debugger
+
   if (playerName === ""){
     playerName = "Player"
   } else if (playerName.lenght < 4 ){
@@ -89,6 +88,7 @@ function resetScore(){
   $('#resetScore').click(function(){
 
     $('#round-num').text(0);
+
     for (i = 0; i < $('.playerScore').length; i++){
       $('.playerScore')[i].textContent = 0
     }
