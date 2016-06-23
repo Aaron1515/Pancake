@@ -12,6 +12,7 @@ function roundCounter(){
 
 function addPlayerBinding(){
   addPlayer();
+
 }
 // ===================Bidding stop===================
 
@@ -43,7 +44,7 @@ function downRound(){
 
 // ===================Add New Player===================
 function addPlayer(){
- $('a.btn.btn-success').click(function(){
+ $('#add-player').click(function(){
    var playerName = $('#player-name')[0].value;
    addNewPlayer(playerName);
    //need to add promise for success and fail
@@ -62,7 +63,7 @@ function addNewPlayer(playerName){
   }
 
   var player = "<tr class='player-stat'><td>"+playerName+"</th><td class='playerScore'>0</td><td class='btn-sm btn-success plus1'>+1</td><td class='btn-sm btn-success plus5'>+5</td><td class='btn-sm btn-success plus10'>+10</td><td class='btn-sm btn-danger minus10'>-10</td><td class='btn-sm btn-danger minus1'>-1</td></tr>";
-
+  // debugger
   $('table').append(player);
 
   var newestPlayer = $('.player-stat').last()
