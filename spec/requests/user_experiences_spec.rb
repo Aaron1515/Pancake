@@ -22,15 +22,33 @@ require 'rails_helper'
 
 RSpec.describe "UserExperiences", type: :request do
   describe "User can add names to field" do
-    it "works! (now write some real specs)" do
+
+    it "is valid with 200 stuats when visiting index path" do
       get welcome_index_path
       expect(response).to have_http_status(200)
     end
 
-    xit "add new player named 'Aaron'" do
+    it "is valid with Add Player button" do
+      visit welcome_index_path
+      expect(page).to have_content "Add Player"
     end
 
-    xit "add new player named 'Player' if no name is selected" do
+    it "add new player named 'Aaron'" do
+      visit welcome_index_path
+
+      # binding.pry
+      # within ('input#player-name.name-field') do
+      #   fill_in 'name', with: 'Aaron'
+      # end
+      # click_button 'Add Player'
+
+      expect(page).to have_content 'Add Player'
+    end
+
+    it "add new player named 'Player' if no name is selected" do
+      visit welcome_index_path
+      click_button "Add Player"
+      expect(page).to have_content "Player"
     end
 
     xit "add 1 to player score when +1 is clicked" do
