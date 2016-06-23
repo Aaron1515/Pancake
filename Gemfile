@@ -14,6 +14,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.4'
   gem 'capybara'
+  gem 'guard-rspec'
 end
 
 group :development do
