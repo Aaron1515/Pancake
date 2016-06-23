@@ -12,7 +12,6 @@ function roundCounter(){
 
 function addPlayerBinding(){
   addPlayer();
-
 }
 // ===================Bidding stop===================
 
@@ -44,12 +43,13 @@ function downRound(){
 
 // ===================Add New Player===================
 function addPlayer(){
- $('#add-player').click(function(){
-   var playerName = $('#player-name')[0].value;
-   addNewPlayer(playerName);
-   //need to add promise for success and fail
-   $('#player-name')[0].value = "";
- });
+  $('#add-player').click(function(e){
+    e.preventDefault();
+    var playerName = $('#player-name')[0].value;
+    addNewPlayer(playerName);
+    //need to add promise for success and fail
+    $('#player-name')[0].value = "";
+  });
 }
 
 function addNewPlayer(playerName){
@@ -87,9 +87,7 @@ function addFunctionTo(player){
 // ===================Reset Score Board Start===================
 function resetScore(){
   $('#resetScore').click(function(){
-
     $('#round-num').text(0);
-
     for (i = 0; i < $('.playerScore').length; i++){
       $('.playerScore')[i].textContent = 0
     }
@@ -109,7 +107,6 @@ function addOne(player){
     var currentScore = parseInt(currentScoreString);
     var newScore = currentScore + 1;
     this.parentNode.childNodes[1].textContent = newScore;
-    // debugger
   });
 }
 
@@ -121,7 +118,6 @@ function addFive(player){
     var currentScore = parseInt(currentScoreString);
     var newScore = currentScore + 5
     this.parentNode.childNodes[1].textContent = newScore;
-    // debugger
   });
 };
 
