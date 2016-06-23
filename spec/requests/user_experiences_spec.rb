@@ -30,6 +30,7 @@ RSpec.describe "UserExperiences", type: :request do
 
     it "is valid with Add Player button" do
       visit '/'
+      binding.pry
       expect(page).to have_content "Add Player"
     end
 
@@ -38,6 +39,20 @@ RSpec.describe "UserExperiences", type: :request do
       find('input').should be_visible
     end
 
+    xit "is not valid before clicking on 'Add Player'" do
+      visit '/'
+
+    end
+
+    xit "is valid if no name is selected, default to 'Player'" do
+      visit welcome_index_path
+      # click_button "Add Player"
+      # binding.pry
+      expect(page).to have_content "Player"
+      # this pass because player is valid because player is on the page already, not a viable test
+    end
+
+
     xit "is valid with custom name" do
       visit '/'
       # input_field = find('input')
@@ -45,17 +60,11 @@ RSpec.describe "UserExperiences", type: :request do
 
       within('form'){ fill_in("player-name", with: "Aaron" ) }
 
+      # binding.pry
       click_button 'Add Player'
       # unable to load new player with rspec, need to do more research, was able to fill in form with name and click new player but rspec isn't finding new element
 
-      binding.pry
       expect(page).to have_content 'Aaron'
-    end
-
-    it "is valid if no name is selected, default to 'Player'" do
-      visit welcome_index_path
-      click_button "Add Player"
-      expect(page).to have_content "Player"
     end
 
     xit "add 1 to player score when +1 is clicked" do
