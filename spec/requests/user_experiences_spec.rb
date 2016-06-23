@@ -38,11 +38,11 @@ RSpec.describe "UserExperiences", type: :request do
 
       # binding.pry
       # within ('input#player-name.name-field') do
-      #   fill_in 'name', with: 'Aaron'
+        fill_in 'input_name', with: 'Aaron'
       # end
-      # click_button 'Add Player'
+      click_button 'Add Player'
 
-      expect(page).to have_content 'Add Player'
+      expect(page).to have_content 'Aaron'
     end
 
     it "add new player named 'Player' if no name is selected" do
