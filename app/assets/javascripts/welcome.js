@@ -43,12 +43,13 @@ function downRound(){
 
 // ===================Add New Player===================
 function addPlayer(){
- $('a.btn.btn-success').click(function(){
-   var playerName = $('#player-name')[0].value;
-   addNewPlayer(playerName);
-   //need to add promise for success and fail
-   $('#player-name')[0].value = "";
- });
+  $('#add-player').click(function(e){
+    e.preventDefault();
+    var playerName = $('#player-name')[0].value;
+    addNewPlayer(playerName);
+    //need to add promise for success and fail
+    $('#player-name')[0].value = "";
+  });
 }
 
 function addNewPlayer(playerName){
@@ -62,7 +63,7 @@ function addNewPlayer(playerName){
   }
 
   var player = "<tr class='player-stat'><td>"+playerName+"</th><td class='playerScore'>0</td><td class='btn-sm btn-success plus1'>+1</td><td class='btn-sm btn-success plus5'>+5</td><td class='btn-sm btn-success plus10'>+10</td><td class='btn-sm btn-danger minus10'>-10</td><td class='btn-sm btn-danger minus1'>-1</td></tr>";
-
+  // debugger
   $('table').append(player);
 
   var newestPlayer = $('.player-stat').last()
@@ -85,10 +86,9 @@ function addFunctionTo(player){
 
 // ===================Reset Score Board Start===================
 function resetScore(){
-  $('#resetScore').click(function(){
-
+  $('#resetScore').click(function(e){
+    e.preventDefault();
     $('#round-num').text(0);
-
     for (i = 0; i < $('.playerScore').length; i++){
       $('.playerScore')[i].textContent = 0
     }
@@ -108,7 +108,6 @@ function addOne(player){
     var currentScore = parseInt(currentScoreString);
     var newScore = currentScore + 1;
     this.parentNode.childNodes[1].textContent = newScore;
-    // debugger
   });
 }
 
@@ -120,7 +119,6 @@ function addFive(player){
     var currentScore = parseInt(currentScoreString);
     var newScore = currentScore + 5
     this.parentNode.childNodes[1].textContent = newScore;
-    // debugger
   });
 };
 
