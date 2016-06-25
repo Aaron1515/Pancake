@@ -15,9 +15,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4'
   gem 'capybara'
   gem 'guard-rspec'
+  gem 'selenium-webdriver'
+  gem "chromedriver-helper"
 end
 
 group :development do
-  gem 'pry-rails'
   gem 'spring'
 end

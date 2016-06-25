@@ -51,7 +51,8 @@ RSpec.describe "UserExperiences", type: :request do
     end
 
 
-    it "is valid with custom name" do
+    it "is valid with custom name", js: true do
+      # get welcome_index_path
 
       visit '/'
 
