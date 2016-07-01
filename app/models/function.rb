@@ -7,7 +7,6 @@ class Game
   def initialize
     @round = 0
     @players = []
-
   end
 
   def add_player(player_name)
