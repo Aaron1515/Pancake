@@ -24,4 +24,7 @@ class Game
     @round -= 1
   end
 
+  def log
+
+  end
 end
